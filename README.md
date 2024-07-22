@@ -12,4 +12,4 @@ L'application est le site d'une agence evenementielle.
 - `yarn start`
 
 ## Tests
-- `yarn test`
+- `yarn test --watch`
