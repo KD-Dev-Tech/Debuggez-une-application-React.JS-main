@@ -13,7 +13,15 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+  const {data} = useData(); // Modification last en data
+
+  // Recupere la date la plus récente des évènements pour afficher le dernier evenement dans le footer d'un tri descendant 
+  // Puis prend le premier element du tableau
+
+  const last = data && data.events.length > 0 
+  ? data.events.sort((a, b) => new Date(b.date) - new Date(a.date))[0]
+  : null;
+
   return <>
     <header>
       <Menu />
@@ -116,6 +124,7 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
+        {last && (
         <EventCard
           imageSrc={last?.cover}
           title={last?.title}
@@ -123,6 +132,7 @@ const Page = () => {
           small
           label="boom"
         />
+        )}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>

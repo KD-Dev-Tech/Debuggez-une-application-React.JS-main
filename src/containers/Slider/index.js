@@ -11,10 +11,9 @@ const Slider = () => {
     new Date(evtA.date) > new Date(evtB.date) ? -1 : 1 // Remplacenment < par > pour corriger l'ordre d'affichage des événements
   );
   const nextCard = () => {
-    setTimeout(
-      () => setIndex(index < byDateDesc.length-1 ? index + 1 : 0), // modification du nombre d'affichage des événements ( Supprime l'affichage blanc)
-      5000
-    );
+    if (byDateDesc && byDateDesc.length > 0) {  // Vérifie que byDateDesc n'est pas undefined et a des éléments
+      setTimeout(() => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0), 5000);
+    }
   };
   useEffect(() => {
     nextCard();
@@ -46,6 +45,7 @@ const Slider = () => {
                   type="radio"
                   name="radio-button"
                   checked={index === radioIdx} // modification de idx par index qui est l'index de l'événement affiché ( BulletPoint )
+                  readOnly
                 />
               ))}
             </div>
