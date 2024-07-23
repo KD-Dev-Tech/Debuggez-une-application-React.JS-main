@@ -18,7 +18,7 @@ const Select = ({
   const changeValue = (newValue) => {
     onChange(newValue);
     setValue(newValue); // Ajout de la valeur newValue pour la sélection
-    setCollapsed(newValue);
+    setCollapsed(true); // Ajout de la fermeture du menu après sélection
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">

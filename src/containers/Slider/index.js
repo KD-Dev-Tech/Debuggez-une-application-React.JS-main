@@ -11,7 +11,7 @@ const Slider = () => {
     new Date(evtA.date) > new Date(evtB.date) ? -1 : 1 // Remplacenment < par > pour corriger l'ordre d'affichage des événements
   );
   const nextCard = () => {
-    if (byDateDesc && byDateDesc.length > 0) {  // Vérifie que byDateDesc n'est pas undefined et a des éléments
+    if (byDateDesc) {  // Vérifie que byDateDesc n'est pas undefined et a des éléments
       setTimeout(() => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0), 5000);
     }
   };
