@@ -27,3 +27,28 @@ describe("When Events is created", () => {
     });
   });
 });
+
+    // Test optionnel pour vérifier si le formulaire est bien soumis
+
+describe.skip("When the form is completed and submit button ", () => {
+  it("the form is clear", async () => {
+    const onSuccess = jest.fn();
+    const onError = jest.fn();
+    render(<Form onSuccess={onSuccess} onError={onError} />);
+    
+    fireEvent.change(await screen.findByLabelText("Nom"), {
+      target: { value: "" },
+    });
+    fireEvent.change(await screen.findByLabelText("Prénom"), { 
+      target: { value: "" },
+    });
+    fireEvent.change(await screen.findByLabelText("Email"), {
+          target: { value: "" },
+    });
+    fireEvent.change(await screen.findByLabelText("Message"), {
+      target: { value: "" },
+    });
+    fireEvent.click(await screen.findByText("Envoyer"));
+    expect(onSuccess).toHaveBeenCalled();
+  }
+)});

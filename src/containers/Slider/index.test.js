@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+// import { render, screen, fireEvent } from "@testing-library/react"; // Import the fireEvent function
+import { render, screen,} from "@testing-library/react";
 import Slider from "./index";
 import { api, DataProvider } from "../../contexts/DataContext";
 
@@ -42,3 +43,17 @@ describe("When slider is created", () => {
     );
   });
 });
+
+// describe("When slider is created", () => {
+//   it("pauses the slider when space is pressed", async () => { 
+//     const { getByTestId } = render(<Slider data={data} />);
+//     const slider = getByTestId('slider-testid'); // Récupérer le slider
+
+//     // Simule l'appui sur la touche espace
+//     fireEvent.keyDown(slider, { key: ' ', code: 'Space', keyCode: 32, charCode: 32 });
+
+//     // Vérifier que le slider est en pause
+//     expect(slider).toHaveClass('paused'); 
+//   });
+// });
+

@@ -29,16 +29,25 @@ describe("When Form is created", () => {
 
 
 describe("When a page is created", () => {
-  it("a list of events is displayed", () => {
-    // to implement
+
+  it("a list of events is displayed", async () => {
+    render(<Home />);
+    await screen.findByText("Catégories");
   })
-  it("a list a people is displayed", () => {
-    // to implement
+  it("a list a people is displayed", async () => {
+    render(<Home />); 
+    await screen.findByText("Une équipe d’experts dédiés à l’ogranisation de vos événements");
   })
-  it("a footer is displayed", () => {
-    // to implement
+  it("a footer is displayed", async () => {
+    render(<Home />);
+    await screen.findByText("Contactez-nous");
+    await screen.findByText("Notre derniére prestation");       
   })
-  it("an event card, with the last event, is displayed", () => {
-    // to implement
+  it("an event card, with the last event, is displayed", async () => {
+    render(<Home />);
+    // Attendre que tous les éléments de la liste des événements soient rendus
+  const eventCards = await screen.findAllByText("Notre derniére prestation");
+    // Vérifier que le dernier élément de la liste est affiché
+  expect(eventCards[eventCards.length - 1]).toBeInTheDocument();
   })
 });

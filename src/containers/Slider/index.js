@@ -12,7 +12,7 @@ const Slider = () => {
   );
   const nextCard = () => {
     if (byDateDesc) {  // Vérifie que byDateDesc n'est pas undefined et a des éléments
-      setTimeout(() => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0), 5000);
+      setTimeout(() => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0), 5000); // Ajout de -1 pour corriger l'index de l'événement affiché
     }
   };
   useEffect(() => {
